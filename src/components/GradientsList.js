@@ -1,29 +1,37 @@
-import Gradient from "./Gradient"
-const GradientsList = () => {
-  return (
-    <ul className="row list-unstyled">
-      <Gradient
-        colorStart="rgb(189, 195, 199)"
-        colorEnd="rgb(44, 62, 80)"
-        name="Grade Grey"
-      />
-      <Gradient
-        colorStart="rgb(31, 64, 55)"
-        colorEnd="rgb(153, 242, 200)"
-        name="Harvey"
-      />
-      <Gradient
-        colorStart="rgb(0, 242, 96)"
-        colorEnd="rgb(5, 117, 230)"
-        name="Rainbow Blue"
-      />
-      <Gradient
-        colorStart="rgb(168, 192, 255)"
-        colorEnd="rgb(63, 43, 150)"
-        name="Slight Ocean View"
-      />
-    </ul>
-  )
-}
+import Gradient from "./Gradient";
 
-export default GradientsList
+const GradientsList = ({ gradients, tag, setTag }) => {
+  let list = [];
+  if (tag !== "Tous") {
+    gradients.forEach((elem) => {
+      if (elem.tags.includes(tag)) {
+        list.push(
+          <Gradient
+            colorStart={elem.start}
+            colorEnd={elem.end}
+            name={elem.name}
+            tags={elem.tags.map((a) => a)}
+            setTag={setTag}
+            tag={tag}
+          />
+        );
+      }
+    });
+  } else {
+    for (let i = 0; i < gradients.length; i++) {
+      list.push(
+        <Gradient
+          colorStart={gradients[i].start}
+          colorEnd={gradients[i].end}
+          name={gradients[i].name}
+          tags={gradients[i].tags.map((a) => a)}
+          setTag={setTag}
+          tag={tag}
+        />
+      );
+    }
+  }
+  return list.map((a) => a);
+};
+
+export default GradientsList;

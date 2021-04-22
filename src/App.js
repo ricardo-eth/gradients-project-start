@@ -1,14 +1,14 @@
-import GradientsList from "./components/GradientsList"
+import GradientHeader from "./components/GradientHeader";
+import GradientsApp from "./components/GradientsApp";
+import { gradients, uniqueTags } from "./gradients";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-center my-4">Alyra Gradients</h1>
-      <main className="container">
-        <GradientsList />
-      </main>
-    </div>
-  )
+    <>
+      <GradientHeader gradients={gradients} />
+      <GradientsApp gradients={gradients} uniqueTags={uniqueTags} />
+    </>
+  );
 }
 
-export default App
+export default App;
