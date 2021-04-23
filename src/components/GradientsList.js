@@ -10,9 +10,9 @@ const GradientsList = ({ gradients, tag, setTag }) => {
             colorStart={elem.start}
             colorEnd={elem.end}
             name={elem.name}
-            tags={elem.tags.map((a) => a)}
-            setTag={setTag}
+            tagsList={elem.tags.map((a) => a)}
             tag={tag}
+            setTag={setTag}
           />
         );
       }
@@ -24,9 +24,9 @@ const GradientsList = ({ gradients, tag, setTag }) => {
           colorStart={gradients[i].start}
           colorEnd={gradients[i].end}
           name={gradients[i].name}
-          tags={gradients[i].tags.map((a) => a)}
-          setTag={setTag}
+          tagsList={gradients[i].tags.map((a) => a)}
           tag={tag}
+          setTag={setTag}
         />
       );
     }

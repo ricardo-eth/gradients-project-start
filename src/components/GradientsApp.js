@@ -19,7 +19,7 @@ const GradientsApp = ({ gradients, uniqueTags }) => {
           tag={tag}
         />
         <ul className="row list-unstyled">
-          <GradientsList gradients={gradients} tag={tag} />
+          <GradientsList gradients={gradients} tag={tag} setTag={setTag} />
         </ul>
       </main>
     </div>
